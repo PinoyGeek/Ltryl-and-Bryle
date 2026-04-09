@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Heart, RefreshCw, TrendingUp, Mail, Users, MapPin, Calendar, Crown } from "lucide-react"
+import { Heart, RefreshCw, TrendingUp, Mail, Users, MapPin, Crown } from "lucide-react"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import Image from "next/image"
 
@@ -61,13 +61,6 @@ export function BookOfGuests() {
       return (words[0][0] + words[words.length - 1][0]).toUpperCase()
     }
     return name.substring(0, 2).toUpperCase()
-  }
-
-  // Helper function to format date
-  const formatDate = (dateString?: string): string => {
-    if (!dateString) return 'Recently'
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
   }
 
   const fetchGuests = async (showLoading = false) => {
@@ -456,13 +449,6 @@ export function BookOfGuests() {
                           </div>
                         </div>
                       )}
-
-                      <div className="flex items-center gap-1 pt-1.5 sm:pt-2 md:pt-2.5 mt-1.5 sm:mt-2 md:mt-2.5 border-t" style={{ borderColor: 'color-mix(in srgb, var(--color-motif-deep) 13%, transparent)' }}>
-                        <Calendar className="h-2.5 w-2.5 sm:h-3 sm:w-3 opacity-70" style={{ color: BOOK_ACCENT }} />
-                        <span className={`${cormorant.className} text-[8px] sm:text-[9px] md:text-[10px] opacity-80`} style={{ color: BOOK_DARKER }}>
-                          Confirmed {formatDate(guest.updatedAt)}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </div>
